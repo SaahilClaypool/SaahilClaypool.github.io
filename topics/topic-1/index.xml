@@ -72,6 +72,14 @@
 &lt;/ol&gt;
 
 &lt;h4 id=&#34;deploying-to-github&#34;&gt;Deploying to Github&lt;/h4&gt;
+
+&lt;p&gt;Using this link: &lt;a href=&#34;http://gohugo.io/tutorials/github-pages-blog/&#34;&gt;http://gohugo.io/tutorials/github-pages-blog/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ ./deploy.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; To get a theme, do git submodule add &lt;theme.git&gt;
+&lt;strong&gt;NOTE&lt;/strong&gt; Must make a ssh key for the computer that is pushing to github.&lt;/p&gt;
 </description>
     </item>
     
