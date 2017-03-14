@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Saahil Claypool</title>
+    <link>http://www.example.com/post/index.xml</link>
+    <description>Recent content in Posts on Saahil Claypool</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-EN</language>
+    <managingEditor>saahil@claypools.com (Saahil Claypool)</managingEditor>
+    <webMaster>saahil@claypools.com (Saahil Claypool)</webMaster>
+    <copyright>(c) 2017 Saahil Claypool.</copyright>
+    <lastBuildDate>Sun, 12 Mar 2017 16:58:30 -0400</lastBuildDate>
+    <atom:link href="http://www.example.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>http://www.example.com/2017/03/12/about/</link>
+      <pubDate>Sun, 12 Mar 2017 16:58:30 -0400</pubDate>
+      <author>saahil@claypools.com (Saahil Claypool)</author>
+      <guid>http://www.example.com/2017/03/12/about/</guid>
+      <description>
+
+&lt;p&gt;This site is created to document my exploration of different computer science topics. I hope to include both content from my school (&lt;a href=&#34;https://www.wpi.edu/&#34;&gt;WPI&lt;/a&gt;) and my own personal projects.&lt;/p&gt;
+
+&lt;h1 id=&#34;about-me&#34;&gt;About Me&lt;/h1&gt;
+
+&lt;p&gt;I, Saahil Claypool, am a computer science major at WPI.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
