@@ -79,8 +79,29 @@
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ ./deploy.sh
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; To get a theme, do git submodule add &lt;theme.git&gt;
-&lt;strong&gt;NOTE&lt;/strong&gt; Must make a ssh key for the computer that is pushing to github.&lt;/p&gt;
+&lt;h5 id=&#34;adding-theme&#34;&gt;Adding Theme&lt;/h5&gt;
+
+&lt;p&gt;To get a theme, do git submodule add &lt;theme.git&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd themes
+$ git submodule add &amp;lt;Theme-URL&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;cloning&#34;&gt;Cloning&lt;/h5&gt;
+
+&lt;p&gt;To clone, submodules must also be cloned. To do this, use the following command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ git clone &amp;lt;url&amp;gt;  --recursive
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Or&lt;/em&gt; after cloning normally&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ git submodule update themes (or other submodule directory)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; Must make a ssh key for the computer that is pushing to github.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&#34;&gt;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -90,13 +111,7 @@
       <pubDate>Sun, 12 Mar 2017 16:58:30 -0400</pubDate>
       <author>saahil@claypools.com (Saahil Claypool)</author>
       <guid>https://saahilclaypool.github.io/2017/03/12/about/</guid>
-      <description>
-
-&lt;p&gt;This site is created to document my exploration of different computer science topics. I hope to include both content from my school (&lt;a href=&#34;https://www.wpi.edu/&#34;&gt;WPI&lt;/a&gt;) and my own personal projects.&lt;/p&gt;
-
-&lt;h1 id=&#34;about-me&#34;&gt;About Me&lt;/h1&gt;
-
-&lt;p&gt;I, Saahil Claypool, am a computer science major at WPI.&lt;/p&gt;
+      <description>&lt;p&gt;This site is created to document my exploration of different computer science topics. I hope to include both content from my school (&lt;a href=&#34;https://www.wpi.edu/&#34;&gt;WPI&lt;/a&gt;) and my own personal projects.&lt;/p&gt;
 </description>
     </item>
     

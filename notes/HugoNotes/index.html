@@ -57,7 +57,7 @@
     },
     "datePublished": "2017-03-14",
     "description": "description",
-    "wordCount": 91
+    "wordCount": 134
   }
 </script>
 
@@ -216,8 +216,29 @@
 <pre><code class="language-sh">$ ./deploy.sh
 </code></pre>
 
-<p><strong>NOTE</strong> To get a theme, do git submodule add <theme.git>
-<strong>NOTE</strong> Must make a ssh key for the computer that is pushing to github.</p>
+<h5 id="adding-theme">Adding Theme</h5>
+
+<p>To get a theme, do git submodule add <theme.git></p>
+
+<pre><code class="language-sh">$ cd themes
+$ git submodule add &lt;Theme-URL&gt;
+</code></pre>
+
+<h5 id="cloning">Cloning</h5>
+
+<p>To clone, submodules must also be cloned. To do this, use the following command</p>
+
+<pre><code class="language-sh">$ git clone &lt;url&gt;  --recursive
+</code></pre>
+
+<p><em>Or</em> after cloning normally</p>
+
+<pre><code class="language-sh">$ git submodule update themes (or other submodule directory)
+</code></pre>
+
+<p><strong>NOTE</strong> Must make a ssh key for the computer that is pushing to github.</p>
+
+<p><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/</a></p>
 
 </div>
 
