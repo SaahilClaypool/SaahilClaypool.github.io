@@ -98,6 +98,8 @@ $ git submodule add &amp;lt;Theme-URL&amp;gt;
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ git submodule update themes (or other submodule directory)
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;Must checkout the master branch for the ./public branch as well&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; Must make a ssh key for the computer that is pushing to github.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&#34;&gt;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&lt;/a&gt;&lt;/p&gt;
