@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notes on Saahil Claypool</title>
-    <link>https://saahilclaypool.github.io/notes/index.xml</link>
+    <link>https://saahilclaypool.github.io/notes/</link>
     <description>Recent content in Notes on Saahil Claypool</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
@@ -22,7 +22,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+&lt;h2 id=&#34;install:af9585c837d48f36af5d6a3a2e52db77&#34;&gt;Install&lt;/h2&gt;
 </description>
     </item>
     
@@ -36,11 +36,11 @@
 
 &lt;hr /&gt;
 
-&lt;h3 id=&#34;hugo-reference&#34;&gt;Hugo Reference&lt;/h3&gt;
+&lt;h3 id=&#34;hugo-reference:ce128cd2c95d805613580edac899661b&#34;&gt;Hugo Reference&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://gohugo.io/overview/introduction/&#34;&gt;Hugo&lt;/a&gt; is a static HTML Site generator. It takes directories of markdown and compiles them into linked HTML websites.&lt;/p&gt;
 
-&lt;h4 id=&#34;setup&#34;&gt;Setup&lt;/h4&gt;
+&lt;h4 id=&#34;setup:ce128cd2c95d805613580edac899661b&#34;&gt;Setup&lt;/h4&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Install Hugo&lt;/p&gt;
@@ -58,7 +58,7 @@
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&#34;commands&#34;&gt;Commands&lt;/h4&gt;
+&lt;h4 id=&#34;commands:ce128cd2c95d805613580edac899661b&#34;&gt;Commands&lt;/h4&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Create new content&lt;/p&gt;
@@ -72,14 +72,14 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&#34;deploying-to-github&#34;&gt;Deploying to Github&lt;/h4&gt;
+&lt;h4 id=&#34;deploying-to-github:ce128cd2c95d805613580edac899661b&#34;&gt;Deploying to Github&lt;/h4&gt;
 
 &lt;p&gt;Using this link: &lt;a href=&#34;http://gohugo.io/tutorials/github-pages-blog/&#34;&gt;http://gohugo.io/tutorials/github-pages-blog/&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ ./deploy.sh
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;adding-theme&#34;&gt;Adding Theme&lt;/h5&gt;
+&lt;h5 id=&#34;adding-theme:ce128cd2c95d805613580edac899661b&#34;&gt;Adding Theme&lt;/h5&gt;
 
 &lt;p&gt;To get a theme, do git submodule add &lt;theme.git&gt;&lt;/p&gt;
 
@@ -87,7 +87,7 @@
 $ git submodule add &amp;lt;Theme-URL&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;cloning&#34;&gt;Cloning&lt;/h5&gt;
+&lt;h5 id=&#34;cloning:ce128cd2c95d805613580edac899661b&#34;&gt;Cloning&lt;/h5&gt;
 
 &lt;p&gt;To clone, submodules must also be cloned. To do this, use the following command&lt;/p&gt;
 
