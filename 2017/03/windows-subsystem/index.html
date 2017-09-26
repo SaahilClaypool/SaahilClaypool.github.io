@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Windows Subsystem  &middot; Saahil Claypool</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="Linux on Windows!" />
+
+<meta name="keywords" content="programming, 2017, ">
+
+
+<meta property="og:title" content="Windows Subsystem  &middot; Saahil Claypool ">
+<meta property="og:site_name" content="Saahil Claypool"/>
+<meta property="og:url" content="https://saahilclaypool.github.io/2017/03/windows-subsystem/" />
+<meta property="og:locale" content="en-EN">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Linux on Windows!"/>
+<meta property="og:article:published_time" content="2017-03-17T13:22:14-04:00" />
+<meta property="og:article:modified_time" content="2017-03-17T13:22:14-04:00" />
+
+  
+    
+<meta property="og:article:tag" content="programming">
+    
+<meta property="og:article:tag" content="2017">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="Windows Subsystem" />
+<meta name="twitter:description" content="Linux on Windows!" />
+<meta name="twitter:url" content="https://saahilclaypool.github.io/2017/03/windows-subsystem/" />
+<meta name="twitter:domain" content="https://saahilclaypool.github.io/">
+  
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Windows Subsystem",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2017-03-17",
+    "description": "Linux on Windows!",
+    "wordCount":  383 
+  }
+</script>
+
+
+
+<link rel="canonical" href="https://saahilclaypool.github.io/2017/03/windows-subsystem/" />
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://saahilclaypool.github.io/touch-icon-144-precomposed.png">
+<link href="https://saahilclaypool.github.io/favicon.png" rel="icon">
+
+<meta name="generator" content="Hugo 0.16-DEV" />
+
+  
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://saahilclaypool.github.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://saahilclaypool.github.io/css/style.css">
+<link rel="stylesheet" href="https://saahilclaypool.github.io/css/highlight/default.css">
+
+  
+  
+</head>
+<body>
+  <main id="main-wrapper" class="container main_wrapper has-sidebar">
+    <header id="main-header" class="container main_header">
+  <div class="container brand">
+  <div class="container title h1-like">
+  <a class="baselink" href="https://saahilclaypool.github.io/">
+  ClayCode
+
+</a>
+
+</div>
+
+  
+<div class="container topline">
+  
+  A Life &amp; Programming Blog
+
+
+</div>
+
+
+</div>
+
+  <nav class="container nav primary no-print">
+  
+
+<a class="homelink" href="https://saahilclaypool.github.io/">Home</a>
+
+
+  
+<a href="https://saahilclaypool.github.io/post" title="Show list of posts">Posts</a>
+
+<a href="https://saahilclaypool.github.io/tags" title="Show list of tags">Tags</a>
+
+
+</nav>
+
+<div class="container nav secondary no-print">
+  
+<a id="contact-link-email" class="contact_link" href="mailto:saahil@claypools.com">
+  <span class="fa fa-envelope-square"></span><span>email</span></a>
+
+
+
+<a id="contact-link-github" class="contact_link" href="https://github.com/saahilclaypool">
+  <span class="fa fa-github-square"></span><span>github</span></a>
+
+
+
+
+
+<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/smclaypool">
+  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+
+</header>
+
+
+<article id="main-content" class="container main_content single">
+  <header class="container hat">
+  <h1>Windows Subsystem
+</h1>
+
+  <div class="metas">
+<time datetime="2017-03-17">17 Mar, 2017</time>
+
+
+  
+  &middot; Read in about 2 min
+  &middot; (383 Words)
+  <br>
+  
+<a class="label" href="https://saahilclaypool.github.io/tags/programming">programming</a>
+
+<a class="label" href="https://saahilclaypool.github.io/tags/2017">2017</a>
+
+
+
+</div>
+
+</header>
+
+  <div class="container content">
+  
+
+<p><em>jump to <a href="#configuration">configuration</a></em></p>
+
+<h1 id="what-is-it:1c05a5d7299fe960498897f034ff344d">What is it?</h1>
+
+<p>The Windows Subsystem for Linux lets linux programs <em>pretend</em> they are running on top of a linux kernel. It maps the Linux system calls through a compatibility layer and to native windows system calls. This makes allows user-space linux programs to as if they were running natively on linux.</p>
+
+<h1 id="why:1c05a5d7299fe960498897f034ff344d">Why?</h1>
+
+<p>This allows windows users to gain almost all of the power of the linux command line on windows. Command line utilities such as grep, awk, and ag are all available just as normal linux. The WSL comes with Ubuntu 14.04 (unless you are running the developer preview builds) and as a result has access to all the Ubuntu packages.</p>
+
+<p>For example, installing <a href="https://github.com/ggreer/the_silver_searcher">ag the silver searcher</a>, a super fast grep replacement, is super simple:</p>
+
+<pre><code class="language-sh">$ apt-get install silversearcher-ag
+</code></pre>
+
+<h3 id="so-what:1c05a5d7299fe960498897f034ff344d">So what?</h3>
+
+<p>Many programming utilities are just better on linux. Python, for example, is much harder to configure on windows. Linux and Mac are the first targets for such languages and tools.</p>
+
+<h3 id="why-not-a-virtual-machine:1c05a5d7299fe960498897f034ff344d">Why not a virtual machine?</h3>
+
+<p>Virtual machines are a pain. They are slow to startup, resource intensive, and crush the battery life of your laptop. Moreover, the real power of linux comes from the <em>command line</em>. Much of the time I spend in the command line is in the terminal. It is overkill to load up an entire virtual machine just to use a simple bash prompt.</p>
+
+<h1 id="okay-sign-me-up:1c05a5d7299fe960498897f034ff344d">Okay, sign me up!</h1>
+
+<p>Its easy to get up and running, but a few tweaks run will make it run flawlessly.</p>
+
+<h2 id="installation:1c05a5d7299fe960498897f034ff344d">Installation</h2>
+
+<p>This is a high level overview of getting the WSL up and running, more information can be found at the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide">microsoft installation guide</a></p>
+
+<ol>
+<li>Turn on developer mode</li>
+</ol>
+
+<p>Hit the &lsquo;Windows&rsquo; key or icon to search. Search for &lsquo;Use developer features&rsquo;</p>
+
+<p>Select the &lsquo;Developer Mode&rsquo; option</p>
+
+<ol>
+<li>Install the WSL</li>
+</ol>
+
+<p>Open Powershell as Administrator and enter</p>
+
+<pre><code class="language-sh">  &gt; Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+</code></pre>
+
+<ol>
+<li><p>Restart your computer</p></li>
+
+<li><p>Run Bash</p></li>
+</ol>
+
+<p>Open the command prompt (hit the windows key / icon and search for &lsquo;CMD&rsquo;)</p>
+
+<p>run</p>
+
+<pre><code class="language-sh">  &gt; bash 
+</code></pre>
+
+<p>and hit y when prompted.</p>
+
+<ol>
+<li>Create a new username and password for linux</li>
+</ol>
+
+<p>Thats it! you should see an icon called &lsquo;bash&rsquo; which will start a command prompt running the linux terminal. The other option is to run the bash command from the normal CMD prompt.</p>
+
+<h1 id="configuration:1c05a5d7299fe960498897f034ff344d">Configuration</h1>
+
+<p><TODO></p>
+
+</div>
+
+
+  <footer class="container">
+  <div class="container navigation no-print">
+  <h2>Navigation</h2>
+  
+  
+
+    
+    <a class="prev" href="https://saahilclaypool.github.io/2017/03/about/" title="About">
+      Previous
+    </a>
+    
+
+    
+    <a class="next" href="https://saahilclaypool.github.io/2017/09/mitre/" title="MITRE">
+      Next
+    </a>
+    
+
+  
+
+
+</div>
+
+  
+</footer>
+
+</article>
+<footer id="main-footer" class="container main_footer">
+  
+
+  <div class="container nav foot no-print">
+  
+
+  <a class="toplink" href="#">back to top</a>
+
+</div>
+
+  <div class="container credits">
+  
+
+  
+<div class="container copyright">
+  
+  &copy; 2017 Saahil Claypool.
+
+
+</div>
+
+
+</div>
+
+</footer>
+
+    </main>
+    
+
+
+<script src="https://saahilclaypool.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    
+  </body>
+</html>
+
