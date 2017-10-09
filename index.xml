@@ -9,18 +9,57 @@
     <managingEditor>saahil@claypools.com (Saahil Claypool)</managingEditor>
     <webMaster>saahil@claypools.com (Saahil Claypool)</webMaster>
     <copyright>(c) 2017 Saahil Claypool.</copyright>
-    <lastBuildDate>Tue, 26 Sep 2017 08:08:14 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 08 Oct 2017 21:16:33 +0200</lastBuildDate>
     <atom:link href="https://saahilclaypool.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>MIT Lincoln Laboratory</title>
+      <title>Yelp Api Exploration</title>
+      <link>https://saahilclaypool.github.io/2017/10/yelp-api-exploration/</link>
+      <pubDate>Sun, 08 Oct 2017 21:16:33 +0200</pubDate>
+      <author>saahil@claypools.com (Saahil Claypool)</author>
+      <guid>https://saahilclaypool.github.io/2017/10/yelp-api-exploration/</guid>
+      <description>
+
+&lt;p&gt;The basic motivation for this project is to have an App that can search for yelp businesses, select a business, and provide some &lt;em&gt;neat&lt;/em&gt; information on that business (something the standard app might not provide). This is largely a toy application to test some new things out.&lt;/p&gt;
+
+&lt;p&gt;This project was an experiment with a number of different frameworks such as:
+- ReactJS + Typescript frontend
+- Websockets communication between back and front ends
+- Asp.Net core backend
+- Yelp API&lt;/p&gt;
+
+&lt;h2 id=&#34;yelp-api:436a066669714e27f6f3893d9134a171&#34;&gt;Yelp API&lt;/h2&gt;
+
+&lt;p&gt;The queries to the yelp API are extremely simple; the client builds up a query string for each endpoint that it hits, sends the query, and parses the JSON back to c#. More to be done here&amp;ndash;&lt;/p&gt;
+
+&lt;h2 id=&#34;designing-the-frontend:436a066669714e27f6f3893d9134a171&#34;&gt;Designing the Frontend&lt;/h2&gt;
+
+&lt;p&gt;The frontend was very simple &amp;amp; created to experiment with react. The basic functionality is as follows:
+- The user types into the search bar, this sends a new query to the websocket server
+- The server replies with possible results
+- The Frontend displays these results underneath the query (like autocomplete)
+- The user clicks a search result, sending a message over websockets requesting that page / result
+- The server replies with the new page, which is rendered&lt;/p&gt;
+
+&lt;p&gt;All of this was written in typescript. Typescript with react also worked as expected, the only problem came with working with Protobuf(js).&lt;/p&gt;
+
+&lt;h2 id=&#34;websockets-protobuf:436a066669714e27f6f3893d9134a171&#34;&gt;Websockets &amp;amp; Protobuf&lt;/h2&gt;
+
+&lt;p&gt;To keep track of the messages sent to and from the server, I used google &lt;a href=&#34;https://developers.google.com/protocol-buffers/&#34;&gt;protobuf&lt;/a&gt;. The message format is defined in a special language-agnostic file. Then, the protobuf compiler compiles protobuf into real classes for whatever language you are using. These classes basically have just two function, serialize to and deserialize from some format (json or binary). This takes most of the hassle out of serializing and unpacking objects between different languages.&lt;/p&gt;
+
+&lt;p&gt;Originally, I hoped to send protobuf binary buffers over the tcp socket, and then have protobuf serialization &amp;amp; deserializations take care of everything. But, protobuf as binary did not play nicely with typescript &amp;amp; javascript; deserializing a binary buffer usually just threw an error and failed to work. Once I got it working, the types were incorrect as protobuf js did not seem to have great typescript support. So, I instead used protobufs JSON desrialization. These JSON messages made up all of the communication between the client and server.&lt;/p&gt;
+
+&lt;p&gt;The frontend used a singleton class to manage all the server-client communication. Different components could &amp;lsquo;subscribe&amp;rsquo; to message types by adding a function handler to a message type.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MIT Lincoln Laboratory - Software Internship 2016</title>
       <link>https://saahilclaypool.github.io/experience/MITLincolnLab/</link>
       <pubDate>Tue, 26 Sep 2017 08:08:14 +0200</pubDate>
       <author>saahil@claypools.com (Saahil Claypool)</author>
       <guid>https://saahilclaypool.github.io/experience/MITLincolnLab/</guid>
       <description>
-
-&lt;h1 id=&#34;mit-lincoln-laboratory-software-internship-2016:4510253af8fdcf3228d4a97b955dff39&#34;&gt;MIT Lincoln Laboratory software Internship 2016&lt;/h1&gt;
 
 &lt;p&gt;I worked &lt;a href=&#34;https://ll.mit.edu/about/about.html&#34;&gt;MIT Lincoln Laboratory&lt;/a&gt; the summer of 2016 in a group working for the FAA. Here I created a visualization tool to monitor a distributed system of computers as a graph network. This tool helped visualize when a node in the graph failed and what effect this had on the rest of the system.&lt;/p&gt;
 
@@ -41,14 +80,12 @@
     </item>
     
     <item>
-      <title>MITRE</title>
+      <title>MITRE - Software Internship 2017</title>
       <link>https://saahilclaypool.github.io/experience/MITRE/</link>
       <pubDate>Sat, 23 Sep 2017 19:23:43 +0200</pubDate>
       <author>saahil@claypools.com (Saahil Claypool)</author>
       <guid>https://saahilclaypool.github.io/experience/MITRE/</guid>
       <description>
-
-&lt;h1 id=&#34;mitre-software-internship-2017:ebcc55d40cfd1667ebe538b187bc92a2&#34;&gt;MITRE software Internship 2017&lt;/h1&gt;
 
 &lt;p&gt;In the summer of 2017 I worked for MITRE, a government research and development summer. I worked on a project called SIMULARITY which worked on creating more realistic cybersecurity training sceneries. The basic idea is this: in the real world, the majority of the people using a computer network are &lt;em&gt;not&lt;/em&gt; interested in hacking or defending a system. Thus, cybersecurity test scenarios should reflect this. But, in most cases, there are just two teams, a red team attacking a system and blue team defending a system. I helped this effort by exposing the &lt;strong&gt;Windows Automation API&lt;/strong&gt; to a server so that it could be controlled by an AI bot. This would then allow the bot to control the human in a way similar to a human.&lt;/p&gt;
 

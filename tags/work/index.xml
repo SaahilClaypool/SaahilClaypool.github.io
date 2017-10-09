@@ -13,14 +13,12 @@
     <atom:link href="https://saahilclaypool.github.io/tags/work/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>MIT Lincoln Laboratory</title>
+      <title>MIT Lincoln Laboratory - Software Internship 2016</title>
       <link>https://saahilclaypool.github.io/experience/MITLincolnLab/</link>
       <pubDate>Tue, 26 Sep 2017 08:08:14 +0200</pubDate>
       <author>saahil@claypools.com (Saahil Claypool)</author>
       <guid>https://saahilclaypool.github.io/experience/MITLincolnLab/</guid>
       <description>
-
-&lt;h1 id=&#34;mit-lincoln-laboratory-software-internship-2016:4510253af8fdcf3228d4a97b955dff39&#34;&gt;MIT Lincoln Laboratory software Internship 2016&lt;/h1&gt;
 
 &lt;p&gt;I worked &lt;a href=&#34;https://ll.mit.edu/about/about.html&#34;&gt;MIT Lincoln Laboratory&lt;/a&gt; the summer of 2016 in a group working for the FAA. Here I created a visualization tool to monitor a distributed system of computers as a graph network. This tool helped visualize when a node in the graph failed and what effect this had on the rest of the system.&lt;/p&gt;
 
@@ -41,14 +39,12 @@
     </item>
     
     <item>
-      <title>MITRE</title>
+      <title>MITRE - Software Internship 2017</title>
       <link>https://saahilclaypool.github.io/experience/MITRE/</link>
       <pubDate>Sat, 23 Sep 2017 19:23:43 +0200</pubDate>
       <author>saahil@claypools.com (Saahil Claypool)</author>
       <guid>https://saahilclaypool.github.io/experience/MITRE/</guid>
       <description>
-
-&lt;h1 id=&#34;mitre-software-internship-2017:ebcc55d40cfd1667ebe538b187bc92a2&#34;&gt;MITRE software Internship 2017&lt;/h1&gt;
 
 &lt;p&gt;In the summer of 2017 I worked for MITRE, a government research and development summer. I worked on a project called SIMULARITY which worked on creating more realistic cybersecurity training sceneries. The basic idea is this: in the real world, the majority of the people using a computer network are &lt;em&gt;not&lt;/em&gt; interested in hacking or defending a system. Thus, cybersecurity test scenarios should reflect this. But, in most cases, there are just two teams, a red team attacking a system and blue team defending a system. I helped this effort by exposing the &lt;strong&gt;Windows Automation API&lt;/strong&gt; to a server so that it could be controlled by an AI bot. This would then allow the bot to control the human in a way similar to a human.&lt;/p&gt;
 

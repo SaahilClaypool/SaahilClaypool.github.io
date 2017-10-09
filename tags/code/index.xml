@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Saahil Claypool</title>
-    <link>https://saahilclaypool.github.io/post/</link>
-    <description>Recent content in Posts on Saahil Claypool</description>
+    <title>Code on Saahil Claypool</title>
+    <link>https://saahilclaypool.github.io/tags/code/</link>
+    <description>Recent content in Code on Saahil Claypool</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-EN</language>
     <managingEditor>saahil@claypools.com (Saahil Claypool)</managingEditor>
     <webMaster>saahil@claypools.com (Saahil Claypool)</webMaster>
     <copyright>(c) 2017 Saahil Claypool.</copyright>
     <lastBuildDate>Sun, 08 Oct 2017 21:16:33 +0200</lastBuildDate>
-    <atom:link href="https://saahilclaypool.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://saahilclaypool.github.io/tags/code/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Yelp Api Exploration</title>
@@ -50,23 +50,6 @@
 &lt;p&gt;Originally, I hoped to send protobuf binary buffers over the tcp socket, and then have protobuf serialization &amp;amp; deserializations take care of everything. But, protobuf as binary did not play nicely with typescript &amp;amp; javascript; deserializing a binary buffer usually just threw an error and failed to work. Once I got it working, the types were incorrect as protobuf js did not seem to have great typescript support. So, I instead used protobufs JSON desrialization. These JSON messages made up all of the communication between the client and server.&lt;/p&gt;
 
 &lt;p&gt;The frontend used a singleton class to manage all the server-client communication. Different components could &amp;lsquo;subscribe&amp;rsquo; to message types by adding a function handler to a message type.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://saahilclaypool.github.io/2017/03/about/</link>
-      <pubDate>Sun, 12 Mar 2017 16:58:30 -0400</pubDate>
-      <author>saahil@claypools.com (Saahil Claypool)</author>
-      <guid>https://saahilclaypool.github.io/2017/03/about/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://saahilclaypool.github.io/img/HeadShot.jpg&#34; alt=&#34;Me&#34; style=&#34;width: 200px;&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;I am a computer science major currently studying at Worcester Polytechnic Institute (WPI) class of 2019.
-I live in Acton, Massachusetts and graduated from the Acton-Boxborough Regional High School in 2015.&lt;/p&gt;
-
-&lt;p&gt;In my free time I play a lot of soccer; I played Varsity soccer in High School and was the Captain my senior year. I played one year of college. I also play a number of video games and card games including League of Legends, FIFA, and the card game Nertz (I would highly recommend learning Nertz).&lt;/p&gt;
-
-&lt;p&gt;I am interested in all areas of computer science, from programming language theory to network protocols. I do have a specific interest in bioinformatics and data science.&lt;/p&gt;
 </description>
     </item>
     

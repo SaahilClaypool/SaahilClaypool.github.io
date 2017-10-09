@@ -13,14 +13,12 @@
     <atom:link href="https://saahilclaypool.github.io/tags/2017/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>MITRE</title>
+      <title>MITRE - Software Internship 2017</title>
       <link>https://saahilclaypool.github.io/experience/MITRE/</link>
       <pubDate>Sat, 23 Sep 2017 19:23:43 +0200</pubDate>
       <author>saahil@claypools.com (Saahil Claypool)</author>
       <guid>https://saahilclaypool.github.io/experience/MITRE/</guid>
       <description>
-
-&lt;h1 id=&#34;mitre-software-internship-2017:ebcc55d40cfd1667ebe538b187bc92a2&#34;&gt;MITRE software Internship 2017&lt;/h1&gt;
 
 &lt;p&gt;In the summer of 2017 I worked for MITRE, a government research and development summer. I worked on a project called SIMULARITY which worked on creating more realistic cybersecurity training sceneries. The basic idea is this: in the real world, the majority of the people using a computer network are &lt;em&gt;not&lt;/em&gt; interested in hacking or defending a system. Thus, cybersecurity test scenarios should reflect this. But, in most cases, there are just two teams, a red team attacking a system and blue team defending a system. I helped this effort by exposing the &lt;strong&gt;Windows Automation API&lt;/strong&gt; to a server so that it could be controlled by an AI bot. This would then allow the bot to control the human in a way similar to a human.&lt;/p&gt;
 
