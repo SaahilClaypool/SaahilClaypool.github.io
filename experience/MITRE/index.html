@@ -19,7 +19,7 @@
 
 <meta property="og:title" content="MITRE - Software Internship 2017  &middot; Saahil Claypool ">
 <meta property="og:site_name" content="Saahil Claypool"/>
-<meta property="og:url" content="https://saahilclaypool.github.io/experience/MITRE/" />
+<meta property="og:url" content="https://saahilclaypool.github.io/experience/mitre/" />
 <meta property="og:locale" content="en-EN">
 
 
@@ -42,7 +42,7 @@
 <meta name="twitter:creator" content="@" />
 <meta name="twitter:title" content="MITRE - Software Internship 2017" />
 <meta name="twitter:description" content="" />
-<meta name="twitter:url" content="https://saahilclaypool.github.io/experience/MITRE/" />
+<meta name="twitter:url" content="https://saahilclaypool.github.io/experience/mitre/" />
 <meta name="twitter:domain" content="https://saahilclaypool.github.io/">
   
 
@@ -53,7 +53,7 @@
     "headline": "MITRE - Software Internship 2017",
     "author": {
       "@type": "Person",
-      "name": "http://profiles.google.com/+?rel=author"
+      "name": "Saahil Claypool"
     },
     "datePublished": "2017-09-23",
     "description": "",
@@ -63,23 +63,22 @@
 
 
 
-<link rel="canonical" href="https://saahilclaypool.github.io/experience/MITRE/" />
+<link rel="canonical" href="https://saahilclaypool.github.io/experience/mitre/" />
 
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://saahilclaypool.github.io/touch-icon-144-precomposed.png">
 <link href="https://saahilclaypool.github.io/favicon.png" rel="icon">
 
-<meta name="generator" content="Hugo 0.16-DEV" />
+<meta name="generator" content="Hugo 0.55.6" />
 
-  
-<!--[if lt IE 9]>
+  <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
 <link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://saahilclaypool.github.io/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://saahilclaypool.github.io/css/style.css">
-<link rel="stylesheet" href="https://saahilclaypool.github.io/css/highlight/default.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight/default.css">
 
   
   
@@ -125,20 +124,20 @@
 
 <div class="container nav secondary no-print">
   
-<a id="contact-link-email" class="contact_link" href="mailto:saahil@claypools.com">
-  <span class="fa fa-envelope-square"></span><span>email</span></a>
+<a id="contact-link-email" class="contact_link" rel="me" aria-label="Email" href="mailto:saahil@claypools.com">
+  <span class="fa fa-envelope-square"></span></a>
 
 
 
-<a id="contact-link-github" class="contact_link" href="https://github.com/saahilclaypool">
-  <span class="fa fa-github-square"></span><span>github</span></a>
+<a id="contact-link-github" class="contact_link" rel="me" aria-label="Github" href="https://github.com/saahilclaypool">
+  <span class="fa fa-github-square"></span></a>
 
 
 
 
-
-<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/smclaypool">
-  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
+ 
+<a id="contact-link-linkedin" class="contact_link" rel="me" aria-label="LinkedIn" href="https://www.linkedin.com/in/smclaypool">
+  <span class="fa fa-linkedin-square"></span></a>
 
 
 
@@ -180,11 +179,11 @@
 
 <p>To solve this, the SIMULARITY project is attempting to make a &lsquo;gray team&rsquo;. This team will be composed of AI controlled bots that will simulate a normal user on a computer. The goal is to create <em>noise</em> in the system. This way the blue team will have to differentiate between arbitrary users and actual red team attackers, thus making a more realistic environment.</p>
 
-<h2 id="technical-fun:ebcc55d40cfd1667ebe538b187bc92a2">Technical Fun</h2>
+<h2 id="technical-fun">Technical Fun</h2>
 
 <p>Random set of interesting technical tools / problems I ran into during my time at MITRE.</p>
 
-<h3 id="windows-automation-api:ebcc55d40cfd1667ebe538b187bc92a2">Windows Automation API</h3>
+<h3 id="windows-automation-api">Windows Automation API</h3>
 
 <p>I was involved in the low level system details required to make these AI bots. The brain of these bots (simulated humans) would control a set of virtual machines, pretending to be a human like user. So, if the bot wanted to move the cursor on <code>Machine 1</code> to the top of left corner, the bot would send a message such as</p>
 
@@ -223,7 +222,7 @@
 
 <p>This is all done using the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ee684009.aspx">Windows Automation API</a></p>
 
-<h3 id="memory-leak-in-managed-code:ebcc55d40cfd1667ebe538b187bc92a2">Memory leak in managed code</h3>
+<h3 id="memory-leak-in-managed-code">Memory leak in managed code</h3>
 
 <p>The windows automation API is interfaced using C/C++ and the Component Object Model (COM). Basically, do call a Windows Automation API, the user makes a struct and sends that struct through a C function to the windows kernel. This is slightly tricky, but ensures the automation library is as fast as possible.</p>
 
@@ -268,7 +267,7 @@
 
 <p>This will <em>not</em> have a cycle. See <a href="https://docs.microsoft.com/en-us/cpp/cppcx/weak-references-and-breaking-cycles-c-cx">here</a> for more information.</p>
 
-<h3 id="protobuf:ebcc55d40cfd1667ebe538b187bc92a2">Protobuf!</h3>
+<h3 id="protobuf">Protobuf!</h3>
 
 <p>In Progress: awesome serialization and schema creation</p>
 
@@ -307,8 +306,9 @@
     
 
 
-<script src="https://saahilclaypool.github.io/js/highlight.pack.js"></script>
+<script src="/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
 
 
     
