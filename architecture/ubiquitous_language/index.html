@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ubiquitious Language - &#39;Software Architect&#39;s Handbook&#39; &middot; </title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/lanyon.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/custom.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://saahilclaypool.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://saahilclaypool.github.io/bitmoji.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="" />
+
+  
+</head>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    MathJax.Hub.Config({
+      tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    });
+  </script>
+<!DOCTYPE html>
+
+<body class=" ">
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="https://saahilclaypool.github.io/" title="Home">Notes on things</a>
+          <small>a continual work in progress</small>
+        </h3>
+      </div>
+    </div>
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"/>
+
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A collection of bits of knowledge</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item " href="https://saahilclaypool.github.io/">Home</a><a class="sidebar-nav-item"
+      href="https://saahilclaypool.github.io/this_site" title="">About</a>
+    </nav>
+
+  <div class="sidebar-item">
+    <p>&copy; 2020. All rights reserved.</p>
+  </div>
+</div>
+    <main class="content container">
+      <div class="post">
+  <h1>Ubiquitious Language - &#39;Software Architect&#39;s Handbook&#39;</h1>
+  <time datetime=2020-07-13T18:09:50-0400 class="post-date">Mon, Jul 13, 2020</time>
+  
+  <p>Ubiquitous Language and the imortance of just <em>agreeing</em> on what to call things.</p>
+<h2 id="ubiquitous-language">Ubiquitous Language</h2>
+<p>Ubiquitous language might not seem like the flashiest thing to pul out of a software architecture book, but I have found that clearly communicating software requirements has been the distinguishing factor of recent projects I have worked on.</p>
+<p>To take a step back, a peice of software is only useful in the way it performs some task (or helps a human perform a task).
+The details for how it gets that task done are not nearly as important as the simple question: does the software do what it needs to do.
+Within a business, &lsquo;thing&rsquo; the program needs to do is often determined in part business owners, and business owners don&rsquo;t always speak the language as the developers.
+One solution to this problem is to create a <em>ubiquitous language</em>: a common language all team members and stakeholders agree upon to refer to parts of the domain.</p>
+<p>Take a recent project I worked on as an example.
+My team was tasked with creating what our product team referred to as a &lsquo;subscription model&rsquo; for students.
+Unlike many models, the payments made by the students would not follow a monthly cadence, but rather be billed to each student by their school semester.
+Moreover, the students would not be paying for indefintely for continued access, but rather just a set number of times before they &lsquo;owned&rsquo; the product.
+Does that sound like a &lsquo;subscription&rsquo;? No. No it is not so much a subscription as a payment broken into a series of installments, and it took our engineering team a long time (weeks!) to reconcile that this &lsquo;subscription&rsquo; was really a payment quantity split into irregular installments.</p>
+<p>This miscommunication went both ways - internally, or engineering team referred to these payment periods as &lsquo;semesters&rsquo; as to us, each payment period aligned with a school semester.
+This colloquial usage led us to name our models, routes, and text within pages as &lsquo;semesters&rsquo;.
+It wasn&rsquo;t until we met a month or so later with our training team (responsible with educating school-personel about our software) that we realized the err of our ways -
+&lsquo;semesters&rsquo; is not the term all schools use to descibe their course run times.
+Moreover, our &lsquo;payment periods&rsquo; would not always line up with these &lsquo;semesters&rsquo; or course blocks.
+Long story short, we needed to rename all our end-user facing terminology, but we still had all the dangling references to the term &lsquo;semester&rsquo;.</p>
+<p>All of this <em>may</em> have been avoided if we had just agreed on what we would call things from the start while we - A ubiquitious language.</p>
+</div>
+    </main>
+</body>
+
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+
+</html>

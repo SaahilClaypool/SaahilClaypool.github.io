@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Creating this site &middot; </title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/lanyon.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/custom.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://saahilclaypool.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://saahilclaypool.github.io/bitmoji.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="" />
+
+  
+</head>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    MathJax.Hub.Config({
+      tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    });
+  </script>
+<!DOCTYPE html>
+
+<body class=" ">
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="https://saahilclaypool.github.io/" title="Home">Notes on things</a>
+          <small>a continual work in progress</small>
+        </h3>
+      </div>
+    </div>
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"/>
+
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A collection of bits of knowledge</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item " href="https://saahilclaypool.github.io/">Home</a><a class="sidebar-nav-item"
+      href="https://saahilclaypool.github.io/this_site" title="">About</a>
+    </nav>
+
+  <div class="sidebar-item">
+    <p>&copy; 2020. All rights reserved.</p>
+  </div>
+</div>
+    <main class="content container">
+      <div class="post">
+  <h1>Creating this site</h1>
+  <time datetime=2020-06-28T04:14:31-0400 class="post-date">Sun, Jun 28, 2020</time>
+  
+  <p>How to build this site</p>
+<h2 id="install-hugo">Install Hugo</h2>
+<p>The easiest way is via <a href="https://github.com/gohugoio/hugo/releases">prebuilt binaries (github)</a></p>
+<h2 id="scaffold-a-site">Scaffold a site</h2>
+<p>While it is possible to manually add all the files needed to create the site, the <code>hugo</code> tool is very handy when configured correctly for removing a lot of boilerplate.</p>
+<ol>
+<li>Create a folder for your site (<code>mkdir my_site &amp;&amp; cd my_site</code>)</li>
+<li>Run <code>hugo new site .</code></li>
+</ol>
+<p>This will a number of different files and folders, but we mostly care about the following:</p>
+<ul>
+<li>
+<p><code>config.toml</code>: stores the site meta variables like URL and can toggle theme options (described later)</p>
+</li>
+<li>
+<p><code>layouts</code>: a folder that will store the HTML templates</p>
+<p>Hugo works similar to other static site generators by taking markdo     wn and metadata and building complete html pages.
+The markdown describes the content, the html describes the layout, and the css will define the style.</p>
+</li>
+<li>
+<p><code>static</code>: a folder to store static assets (images etc.)</p>
+</li>
+<li>
+<p><code>content</code>: the folder your actual content will be written</p>
+</li>
+</ul>
+<h2 id="themes">Themes</h2>
+<p>Themes are packages containing all the html layouts and css for different types of pages for hugo sites.
+These make creating a new site super easy, but I have found that configuring them is sometimes not worth the effort for very simple sites.</p>
+<p>Most templates seem to assume a blog-style approach where each post is organized / found by a time-based slug.
+I prefer to just find my posts by hand-coded urls.</p>
+<h2 id="working-with-templates--layouts">Working with Templates &amp; Layouts</h2>
+<p>Layouts stored in the <code>layouts</code> folder define the structure of your site.
+Different layouts will be automatically loaded based on the context of your site.
+The <code>_default</code> folder will define the default layout for the following types:</p>
+<ul>
+<li><code>baseof.htm</code>: layout shared by all other layouts</li>
+<li><code>single.html</code>: layout for singles &lsquo;<em>posts</em>&rsquo;</li>
+<li><code>list.html</code>: layout for pages that list other pages</li>
+</ul>
+<p>Below are annotated files that I use to create my base layouts</p>
+<h3 id="baseof">Baseof</h3>
+<p>Inherited by each of the templates.
+Each template should include the following:</p>
+<ul>
+<li>class for the site theme</li>
+<li>if the layout should be flipped</li>
+<li>the sidebar</li>
+<li>the actual content</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html">{{ partial &#34;head.html&#34; . }}
+  <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;{{ .Site.Params.themeColor }} {{if .Site.Params.layoutReverse}}layout-reverse{{end}}&#34;</span><span class="p">&gt;</span>
+  {{ partial &#34;sidebar.html&#34; . }}
+    <span class="p">&lt;</span><span class="nt">main</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;content container&#34;</span><span class="p">&gt;</span>
+    {{ block &#34;main&#34; . -}}{{- end }}
+    <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div><h3 id="single">Single</h3>
+<p>Similarly, this template depicts</p>
+<ul>
+<li>The title</li>
+<li>The date</li>
+<li>table of contents if there is a parameter called <code>.toc</code> that is set to the string &lsquo;true&rsquo;</li>
+<li>the actual content</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html">{{ define &#34;main&#34; -}}
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{ .Title }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">time</span> <span class="na">datetime</span><span class="o">=</span><span class="s">{{</span> <span class="err">.</span><span class="na">Date</span><span class="err">.</span><span class="na">Format</span> <span class="err">&#34;</span><span class="na">2006-01-02T15:04:05Z0700</span><span class="err">&#34;</span> <span class="err">}}</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;post-date&#34;</span><span class="p">&gt;</span>{{ .Date.Format &#34;Mon, Jan 2, 2006&#34; }}<span class="p">&lt;/</span><span class="nt">time</span><span class="p">&gt;</span>
+  {{ if (eq .Params.toc &#34;true&#34;) }}
+  <span class="p">&lt;</span><span class="nt">aside</span><span class="p">&gt;</span>
+    {{.TableOfContents}}
+  <span class="p">&lt;/</span><span class="nt">aside</span><span class="p">&gt;</span>
+  {{ end }}
+  {{ .Content }}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+{{- end }}
+</code></pre></div><h2 id="syntax-highlighting">Syntax Highlighting</h2>
+<p>Add the following to enable pygments in your config</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="c"># Enable for syntax highlighting</span>
+<span class="nx">pygmentsUseClasses</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="nx">pygmentsCodefences</span> <span class="p">=</span> <span class="kc">true</span>
+</code></pre></div><p>Then, generate a syntax theme with <code>hugo gen chromastyles --style=github &gt; static/css/syntax.css</code>.
+Finally, load the syntax theme in the <code>head.html</code> template</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html">...
+  <span class="c">&lt;!-- CSS --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .Site.BaseURL }}css/syntax.css&#34;</span><span class="p">&gt;</span>
+...
+</code></pre></div>
+</div>
+    </main>
+</body>
+
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+
+</html>

@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
-    <link>https://saahilclaypool.github.io/</link>
-    <description>Recent content on </description>
+    <title>C# on </title>
+    <link>https://saahilclaypool.github.io/csharp/</link>
+    <description>Recent content in C# on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jun 2020 04:11:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://saahilclaypool.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://saahilclaypool.github.io/csharp/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Creating this site</title>
-      <link>https://saahilclaypool.github.io/this_site/01_quickstart/</link>
-      <pubDate>Sun, 28 Jun 2020 04:14:31 -0400</pubDate>
-      
-      <guid>https://saahilclaypool.github.io/this_site/01_quickstart/</guid>
-      <description>&lt;p&gt;How to build this site&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>Configure Await</title>
@@ -37,15 +28,6 @@ I came across number of calls that looked like this:&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;await&lt;/code&gt; uses a custom callback strategy based on the calling context&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ConfigureAwait(false)&lt;/code&gt; ignores the custom strategy.&lt;/li&gt;
 &lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Ubiquitious Language - &#39;Software Architect&#39;s Handbook&#39;</title>
-      <link>https://saahilclaypool.github.io/architecture/ubiquitous_language/</link>
-      <pubDate>Mon, 13 Jul 2020 18:09:50 -0400</pubDate>
-      
-      <guid>https://saahilclaypool.github.io/architecture/ubiquitous_language/</guid>
-      <description>&lt;p&gt;Ubiquitous Language and the imortance of just &lt;em&gt;agreeing&lt;/em&gt; on what to call things.&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>This Site on </title>
+    <link>https://saahilclaypool.github.io/this_site/</link>
+    <description>Recent content in This Site on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Jun 2020 04:14:31 -0400</lastBuildDate>
+    
+	<atom:link href="https://saahilclaypool.github.io/this_site/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating this site</title>
+      <link>https://saahilclaypool.github.io/this_site/01_quickstart/</link>
+      <pubDate>Sun, 28 Jun 2020 04:14:31 -0400</pubDate>
+      
+      <guid>https://saahilclaypool.github.io/this_site/01_quickstart/</guid>
+      <description>&lt;p&gt;How to build this site&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

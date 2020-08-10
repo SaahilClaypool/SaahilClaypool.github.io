@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Configure Await &middot; </title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/lanyon.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/custom.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://saahilclaypool.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://saahilclaypool.github.io/bitmoji.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="" />
+
+  
+</head>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    MathJax.Hub.Config({
+      tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    });
+  </script>
+<!DOCTYPE html>
+
+<body class=" ">
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="https://saahilclaypool.github.io/" title="Home">Notes on things</a>
+          <small>a continual work in progress</small>
+        </h3>
+      </div>
+    </div>
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"/>
+
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A collection of bits of knowledge</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item " href="https://saahilclaypool.github.io/">Home</a><a class="sidebar-nav-item"
+      href="https://saahilclaypool.github.io/this_site" title="">About</a>
+    </nav>
+
+  <div class="sidebar-item">
+    <p>&copy; 2020. All rights reserved.</p>
+  </div>
+</div>
+    <main class="content container">
+      <div class="post">
+  <h1>Configure Await</h1>
+  <time datetime=2020-08-09T18:09:50-0400 class="post-date">Sun, Aug 9, 2020</time>
+  
+  <p>Reading through a <a href="https://github.com/ivanpaulovich/clean-architecture-manga/tree/dotnet5">asp.net core project</a>,
+I came across number of calls that looked like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">int</span> <span class="n">affectedRows</span> <span class="p">=</span> <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="n">_context</span>
+    <span class="p">.</span><span class="n">SaveChangesAsync</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">ConfigureAwait</span><span class="p">(</span><span class="k">false</span><span class="p">);</span> <span class="c1">// ME: what does this do?
+</span><span class="c1"></span><span class="k">return</span> <span class="n">affectedRows</span><span class="p">;</span>
+</code></pre></div><p>I dug into what this was actually doing by reading <a href="https://devblogs.microsoft.com/dotnet/configureawait-faq/">this blog</a>:</p>
+<ul>
+<li><code>await</code> uses a custom callback strategy based on the calling context</li>
+<li><code>ConfigureAwait(false)</code> ignores the custom strategy.</li>
+</ul>
+<p>First off, I just want to say that I <em>don&rsquo;t like this code</em>.
+Code like <code>ConfigureAwait(false)</code> strewn around a codebase are not very expressive snippets - they don&rsquo;t convery much <em>developer intent</em> for what that method should actually be doing.
+And, looking at the example codebase, the developers used this snippet <em>everywhere</em>, so I became curious as to why it wasn&rsquo;t the default behavior (and of course how it was actually different than the default behavior).</p>
+<blockquote>
+<p>Everything written beyond this point is my summary of <a href="https://devblogs.microsoft.com/dotnet/configureawait-faq/">this blog</a> for the purposes of my own understanding.</p>
+</blockquote>
+<h2 id="what-does-await-do">What does await do?</h2>
+<p><code>Await</code> works by telling the compiler to convert code to <a href="https://en.wikipedia.org/wiki/Continuation-passing_style">continuation-passing-style</a> - a fancy way of saying that the next lines of imperitive code become a <em>callback</em> or function to be executed once the current &lsquo;awaited&rsquo; line finishes.
+The general algorithm is to split the code at each <code>await</code> into a new continuation that gets execeuted when the async code completes.</p>
+<p>Thus, code like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">var</span> <span class="n">x</span> <span class="p">=</span> <span class="k">await</span> <span class="n">ComputeValueAsync</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&#34;x is now {x}&#34;</span><span class="p">)</span>
+</code></pre></div><p><em>roughly</em> becomes this (see <a href="https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/">this blog</a> for more accurate rendition):</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="n">ComputeValueAsync</span><span class="p">().</span><span class="n">ContinueWith</span><span class="p">(</span><span class="n">result</span> <span class="p">=&gt;</span> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&#34;x is {result}&#34;</span><span class="p">));</span>
+</code></pre></div><p>The only other component is <em>threading</em>.
+Generally, async code is used to offload work from the current thread.
+Imagine you (the current thread) are a factory worker with a bunch of minions (your thread pool).
+When you need to do something tedious, say finding the name of your mother in law to send her a letter, you can ask your minions to do it for you (schedule a task in a thread pool).
+This minion has two different response options:</p>
+<ul>
+<li>
+<p>A) Once they have found your mother in law&rsquo;s name, they can tell you what it is so <em>you</em> can send the letter</p>
+<p>This would mean <em>returning the value to the original calling thread / context</em>.</p>
+</li>
+<li>
+<p>B) Once they have found your mother in law&rsquo;s name, they can send the latter (or tell someone else to send it)</p>
+<p>This would mean that execution could continue on <em>any</em> of the available calling contexts.</p>
+</li>
+</ul>
+<p>This is where configure await comes in.</p>
+<h2 id="configureawaitfalse">ConfigureAwait(false)</h2>
+<p>The decision made by the .NET core compiler between choice <code>A</code> and choice <code>B</code> is <em>generally</em> choice <code>B</code>: the compiler will continue executing the async code <em>without</em> forcing it back into the calling context.
+But, there are certain times where it matters which context code is executed in, such as in a GUI.</p>
+<p>In GUI programming, properties can only  be accessed safely in the UI thread.
+So, simple code like <code>button.text = await http.GetStringAsync(&quot;http://example.com/&quot;)</code> cannot simply use strategy <code>A</code> shown above -
+If the continuation, setting the button text, is run in a <em>different</em> context than the original UI context, the code will produce an error.</p>
+<p>Luckily for application developers, the .NET application frameworks generally set the default behavior by setting the <code>SynchronizationContext</code> for you.
+This can be done via the <code>SynchronizationContext.SetSynchronizationContext(myContext)</code> method.
+The custom <code>myContext</code> object will be used to configure the strategy used to determine which execution context completes the continuation.
+Ergo, WPF will <em>force</em> await calls to return their continuations to the calling context by <code>enqueueing</code> the continuation to the calling context.
+Once the UI thread is able to pull the continuation off the queue, it will execute the code to set the button text and no exceptions will be thrown.</p>
+<h2 id="why-not-always-use-this-custom-synchronizationcontext">Why not always use this custom SynchronizationContext?</h2>
+<p>Overhead and Deadlocks.</p>
+<p>Forcing the continuation to be handled by the calling context <em>might</em> be needless, and it takes a bit of time to do so.
+So, it adds possibly uneeded overhead.</p>
+<p>More importantly, queueing the continuation into the calling context can create deadlocks.
+Imagine a webserver makes a <em>synchronous</em> call to some webserver by calling an Async function and calling <code>.Wait()</code>,blocking the current thread until the Task completes.
+Upon finishing the download, it enqueues the continuation to original context, but that thread cannot handle callback as it is blocked.
+The thread will remain blocked until the callback is executed, so the system is in deadlock.</p>
+<p>By adding <code>ConfigureAwait(false)</code>, which tells the compiler explicitly to NOT use the calling context to schedule callbacks, the continuation will not be entered onto the original queue, but rather some other thread in the thread pool
+This will avoid the deadlock.</p>
+<blockquote>
+<p>Note: the original caller also should not have bocked on the async code, as that is the other requirement for this deadlock.
+See <a href="https://blog.stephencleary.com/2012/07/dont-block-on-async-code">Don&rsquo;t Block on Async Code</a>
+But, doing both makes doubly sure you don&rsquo;t deadlock your application.</p>
+</blockquote>
+<h2 id="read-more">Read More</h2>
+<ol>
+<li><a href="https://github.com/ivanpaulovich/clean-architecture-manga/tree/dotnet5">Clean Architecture Manga</a>.</li>
+<li><a href="https://devblogs.microsoft.com/dotnet/configureawait-faq/">Configure Await FAQ</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Continuation-passing_style">Continuation Passing Style</a></li>
+<li><a href="https://devblogs.microsoft.com/premier-developer/dissecting-the-async-methods-in-c/">Dissecting the async methods in C#</a></li>
+<li><a href="https://blog.stephencleary.com/2012/07/dont-block-on-async-code">Don&rsquo;t Block on Async Code</a></li>
+</ol>
+</div>
+    </main>
+</body>
+
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+
+</html>

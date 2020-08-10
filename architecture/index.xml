@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>https://saahilclaypool.github.io/architecture/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Jul 2020 18:09:50 -0400</lastBuildDate>
+    
+	<atom:link href="https://saahilclaypool.github.io/architecture/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ubiquitious Language - &#39;Software Architect&#39;s Handbook&#39;</title>
+      <link>https://saahilclaypool.github.io/architecture/ubiquitous_language/</link>
+      <pubDate>Mon, 13 Jul 2020 18:09:50 -0400</pubDate>
+      
+      <guid>https://saahilclaypool.github.io/architecture/ubiquitous_language/</guid>
+      <description>&lt;p&gt;Ubiquitous Language and the imortance of just &lt;em&gt;agreeing&lt;/em&gt; on what to call things.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
