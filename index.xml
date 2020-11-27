@@ -33,7 +33,7 @@ Or, if I need to create some fake data, I could drop into another console and ru
 Both of these would be easy enough to do in SQL, but I find it more convenient to use the application&amp;rsquo;s ORM and have access to any helper functions that I&amp;rsquo;ve already written.&lt;/p&gt;
 &lt;p&gt;Recently, I&amp;rsquo;ve tried to approximate this workflow using &lt;a href=&#34;https://github.com/dotnet/interactive&#34;&gt;dotnet interactive&lt;/a&gt;, and I&amp;rsquo;ll describe that setup below.
 The finished result can be found
-&lt;a href=&#34;https://github.com/SaahilClaypool/BookyAPI/blob/221c8fc847ca2ba28b4347f6a094b52fc9a59b6d/Scratch.ipynb&#34;&gt;here&lt;/a&gt;(github).&lt;/p&gt;
+&lt;a href=&#34;https://github.com/SaahilClaypool/BookyAPI/blob/f4dc0929d51a29de18b7189d45b5d4e18f52ab4e/Scratch.ipynb&#34;&gt;here&lt;/a&gt;(github).&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://saahilclaypool.github.io/BookyInteractive.png&#34; alt=&#34;Notebook example&#34;&gt;&lt;/p&gt;</description>
     </item>
     
