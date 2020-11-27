@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dotnet interactive as a query playground &middot; </title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/lanyon.css">
+  <link type="text/css" rel="stylesheet" href="https://saahilclaypool.github.io/css/custom.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://saahilclaypool.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://saahilclaypool.github.io/bitmoji.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="" />
+
+  
+</head>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    MathJax.Hub.Config({
+      tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    });
+  </script>
+<!DOCTYPE html>
+
+<body class=" ">
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="https://saahilclaypool.github.io/" title="Home">Notes on things</a>
+          <small>a (hopefully) useful collection of things I learn</small>
+        </h3>
+      </div>
+    </div>
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"/>
+
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A collection of bits of knowledge</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item " href="https://saahilclaypool.github.io/">Home</a><a class="sidebar-nav-item"
+      href="https://saahilclaypool.github.io/this_site" title="">About</a>
+    </nav>
+
+  <div class="sidebar-item">
+    <p>&copy; 2020. All rights reserved.</p>
+  </div>
+</div>
+    <main class="content container">
+      <div class="post">
+  <h1>Dotnet interactive as a query playground</h1>
+  <time datetime=2020-11-27T00:00:00Z class="post-date">Fri, Nov 27, 2020</time>
+  
+  <p>The tool I miss most when leaving ruby-on-rails is the <a href="https://guides.rubyonrails.org/command_line.html">rails console</a> because it allows the me (or any developer) to run queries against the database in the same language as the rest of the codebase.
+This is extremely useful for testing out queries that I&rsquo;m writing in some service ( like <code>User.where('age &gt; 15)</code>) or for ad-hoc data updates (like <code>User.last.update(email: 'test@test.org')</code>).</p>
+<p>Recently, with the release of <a href="https://github.com/dotnet/interactive">dotnet interactive</a>, I&rsquo;ve found a way to build myself a fairly close approximation.
+An example notebook that loads a DLL with an appropriate DbContext and executes a few queries can be found <a href="https://github.com/SaahilClaypool/BookyAPI/blob/221c8fc847ca2ba28b4347f6a094b52fc9a59b6d/Scratch.ipynb">here</a>(github).</p>
+<p><img src="https://saahilclaypool.github.io/BookyInteractive.png" alt="Interactive Example"></p>
+<h2 id="motivational-use-cases">Motivational use cases</h2>
+<p>Here are some things I might do while testing an ruby-on-rails application locally.
+In an (my) ideal world, I would be able to write my type-safe C#, but still get the interactive workflow of ruby-on-rails.</p>
+<ol>
+<li>
+<p>I want my local user to be an admin</p>
+<p>In the ruby console, I would write <code>User.where(email: 'test@test.org').first.update(role: 'admin')</code>.</p>
+<p>In C#, I would <em>like to write</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">var</span> <span class="n">user</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Set</span><span class="p">&lt;</span><span class="n">ApplicationUser</span><span class="p">&gt;().</span><span class="n">Where</span><span class="p">(</span><span class="n">u</span> <span class="p">=&gt;</span> <span class="n">u</span><span class="p">.</span><span class="n">Email</span> <span class="p">==</span> <span class="s">&#34;test@test.org&#34;</span><span class="p">).</span><span class="n">First</span><span class="p">();</span>
+<span class="n">user</span><span class="p">.</span><span class="n">role</span> <span class="p">=</span> <span class="s">&#34;Admin&#34;</span><span class="p">;</span>
+<span class="n">context</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
+</code></pre></div></li>
+<li>
+<p>I want to remove the last objecct I created via the UI so I can try again.</p>
+<p>Ruby: <code>Bookmark.last.destroy</code>.</p>
+<p>C#: <code>var bookmark = context.Bookmarks.Last(); context.Bookmarks.Remove(bookmark); context.SaveChanges();</code></p>
+</li>
+<li>
+<p>I want to find a set of objects in some &lsquo;invalid&rsquo; state.</p>
+<p>Ruby: <code>User.where(status: 'invalid').pluck(:id)</code></p>
+<p>C#: <code>context.Users.Where(u =&gt; u.status == &quot;invalid&quot;).Select(u =&gt; u.Id)</code></p>
+</li>
+</ol>
+<p>None of these are very complicated, but I&rsquo;ve found it incredibly handy to be able to instantly evaluate code I&rsquo;m writing against real data.
+And, with dotnet interactive, its pretty easy to set that up in a C# project.</p>
+<h2 id="building-a-notebook">Building a notebook</h2>
+<p>The steps to connect a notebook to an API context are fairly strait forward:</p>
+<ol>
+<li>Build the project</li>
+<li>Load the required entity framework nuget packages</li>
+<li>Load the project DLL (containing the reference to the DbContext you want to use)</li>
+<li>Create a DbContext object</li>
+<li>Use the DbContext however you see fit!</li>
+</ol>
+<h3 id="0-create-the-notebook">0. Create the notebook</h3>
+<p>To get started, install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode">dotnet interactive vscode extension</a>.
+Then, from the command menu select <code>&gt; .NET Interactive: Create new blank notebook</code>.
+This will create a new blank notebook file that you can save in the root of your project.</p>
+<p>If you don&rsquo;t want to commit this to version control, you can add an entry to your <code>.gitignore</code> or global gitignore file.</p>
+<p>You can verify the extension is working and the version of dotnet being used is the latest by creating a cell with the follow code and click the <code>Run all cells</code> button.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="n">Environment</span><span class="p">.</span><span class="n">Version</span>
+</code></pre></div><h3 id="1-build-the-project">1. Build the project</h3>
+<p>The dotnet interactive can switch the language type of a cell by using the <code>#!</code> magic string.
+So, I created a powershell code block and execute <code>dotnet build</code> in the project.</p>
+<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c">#! pwsh</span>
+
+<span class="n">dotnet</span> <span class="n">build</span>
+</code></pre></div><p>This should produce some output indicating which DDL was built, which will be useful in the next step</p>
+<pre><code>Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  BookyApi -&gt; /home/saahil/gitProjects/BookyApi/API/bin/Debug/net5.0/BookyApi.dll # &lt;-- This is the DLL
+</code></pre><h3 id="2-load-the-required-entity-framework-nuget-packages">2. Load the required entity framework nuget packages</h3>
+<p>Create a new <code>C#</code> cell and add a reference to each nuget package that you would like to use.
+Each line should be in the format <code>#r &quot;nuget:&lt;package name&gt;,&lt;version&gt;</code>.</p>
+<pre><code>#r &quot;nuget:Microsoft.EntityFrameworkCore.Design,5.0.0&quot;
+#r &quot;nuget:Npgsql,5.0.0&quot;
+#r &quot;nuget:Npgsql.EntityFrameworkCore.PostgreSQL,5.0.0&quot;
+</code></pre><p>Clicking <code>Execute cell</code> will install these packages as normal.</p>
+<h3 id="3-load-your-project-dll">3. Load your project DLL</h3>
+<p>To actually access your project code, you need to load the DLL much like the nuget packages.
+This is done simply by padding a <code>#r</code> directive pointing to the DLL compiled in step 1.</p>
+<p>My sample project has a line like this:</p>
+<pre><code>#r &quot;./API/bin/Debug/net5.0/BookyApi.dll&quot;
+</code></pre><blockquote>
+<p>Note: Each time you build your project, you will need to restart the Jupyter kernel powering the notebook and reload this DLL.</p>
+</blockquote>
+<h3 id="4-create-a-dbcontext-option">4. Create a DbContext option</h3>
+<p>I created a single cell with all the helper objects and other boilerplate down the road.
+Any namespace included here with a <code>using</code> statement will be usable in all the future cells.</p>
+<p>Creating the DbContext object is easy enough to do via a connecction string.
+Once this object is created, it is globally accessible to othe other code blocks as long as the kernal is running.
+(Generally, not disposing a DbContext isn&rsquo;t great, but for a simple interactive notebook it should be fine. This could be replaced with a factory &amp; <code>using</code> statements).</p>
+<blockquote>
+<p>Note to self: it would probably be useful to set up the entire service provider here so any service could be tested via
+dependency injection.
+For example, testing a some MediatR handler could be done by simple running <code>serviceProvider.GetService&lt;MyHandler&gt;().Handle(new())</code></p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Text.Json</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.EntityFrameworkCore</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">BookyApi.API.Db</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">BookyApi.API.Models</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">BookyApi.API.Services.Extensions</span><span class="p">;</span>
+
+<span class="kt">var</span> <span class="n">options</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DbContextOptionsBuilder</span><span class="p">&lt;</span><span class="n">BookyContext</span><span class="p">&gt;();</span>
+<span class="n">options</span><span class="p">.</span><span class="n">UseNpgsql</span><span class="p">(</span><span class="s">&#34;Host=localhost;Database=BookyApI;Username=postgres;Password=example;Port=5432&#34;</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BookyContext</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">Options</span><span class="p">);</span>
+</code></pre></div><h3 id="5-use-the-dbcontext-as-you-see-fit">5. Use the DbContext as you see fit!</h3>
+<p>Now that there is a globally available <code>context</code> object, it is easy to use Linq and your codebase to query, update, and test your code.
+Because this is all just &lsquo;plain old C# code&rsquo;, you can copy and paste code from parts of your project into this interactive window, or just write simple queries as top-level queries.
+The last statement not ending with a semi-colon will be printed in a human-readable manner to the output window.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">var</span> <span class="n">books</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="n">Bookmarks</span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+<span class="n">books</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">b</span> <span class="p">=&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">Content</span><span class="p">)</span>
+
+<span class="cm">/* Output: 
+</span><span class="cm">index	value
+</span><span class="cm">0	Here comes santa
+</span><span class="cm">*/</span>
+</code></pre></div>
+</div>
+    </main>
+</body>
+
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+
+</html>

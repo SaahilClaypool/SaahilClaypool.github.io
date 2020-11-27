@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>Dotnet interactive as a query playground</title>
+      <link>https://saahilclaypool.github.io/csharp/dotnet_interactive/</link>
+      <pubDate>Fri, 27 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://saahilclaypool.github.io/csharp/dotnet_interactive/</guid>
+      <description>&lt;p&gt;The tool I miss most when leaving ruby-on-rails is the &lt;a href=&#34;https://guides.rubyonrails.org/command_line.html&#34;&gt;rails console&lt;/a&gt; because it allows the me (or any developer) to run queries against the database in the same language as the rest of the codebase.
+This is extremely useful for testing out queries that I&amp;rsquo;m writing in some service ( like &lt;code&gt;User.where(&#39;age &amp;gt; 15)&lt;/code&gt;) or for ad-hoc data updates (like &lt;code&gt;User.last.update(email: &#39;test@test.org&#39;)&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Recently, with the release of &lt;a href=&#34;https://github.com/dotnet/interactive&#34;&gt;dotnet interactive&lt;/a&gt;, I&amp;rsquo;ve found a way to build myself a fairly close approximation.
+An example notebook that loads a DLL with an appropriate DbContext and executes a few queries can be found &lt;a href=&#34;https://github.com/SaahilClaypool/BookyAPI/blob/221c8fc847ca2ba28b4347f6a094b52fc9a59b6d/Scratch.ipynb&#34;&gt;here&lt;/a&gt;(github).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://saahilclaypool.github.io/BookyInteractive.png&#34; alt=&#34;Interactive Example&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Configure Await</title>
       <link>https://saahilclaypool.github.io/csharp/configure_await/</link>
       <pubDate>Sun, 09 Aug 2020 18:09:50 -0400</pubDate>

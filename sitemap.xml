@@ -8,6 +8,22 @@
   </url>
   
   <url>
+    <loc>https://saahilclaypool.github.io/csharp/dotnet_interactive/</loc>
+    <lastmod>2020-11-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://saahilclaypool.github.io/architecture/</loc>
+    <lastmod>2020-09-13T18:09:50-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://saahilclaypool.github.io/architecture/architecture_process/</loc>
+    <lastmod>2020-09-13T18:09:50-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://saahilclaypool.github.io/csharp/configure_await/</loc>
     <lastmod>2020-08-09T18:09:50-04:00</lastmod>
   </url>
@@ -20,12 +36,6 @@
   <url>
     <loc>https://saahilclaypool.github.io/csharp/</loc>
     <lastmod>2020-07-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://saahilclaypool.github.io/architecture/</loc>
-    <lastmod>2020-07-13T18:09:50-04:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
