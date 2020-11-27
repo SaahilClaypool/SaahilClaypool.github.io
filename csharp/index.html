@@ -73,11 +73,15 @@
     
     <div>
       <hr/>
-      <h2><a href="https://saahilclaypool.github.io/csharp/dotnet_interactive/">Dotnet interactive as a query playground</a></h2>
-      <p>The tool I miss most when leaving ruby-on-rails is the <a href="https://guides.rubyonrails.org/command_line.html">rails console</a> because it allows the me (or any developer) to run queries against the database in the same language as the rest of the codebase.
-This is extremely useful for testing out queries that I&rsquo;m writing in some service ( like <code>User.where('age &gt; 15)</code>) or for ad-hoc data updates (like <code>User.last.update(email: 'test@test.org')</code>).</p>
-<p>Recently, with the release of <a href="https://github.com/dotnet/interactive">dotnet interactive</a>, I&rsquo;ve found a way to build myself a fairly close approximation.
-An example notebook that loads a DLL with an appropriate DbContext and executes a few queries can be found <a href="https://github.com/SaahilClaypool/BookyAPI/blob/221c8fc847ca2ba28b4347f6a094b52fc9a59b6d/Scratch.ipynb">here</a>(github).</p>
+      <h2><a href="https://saahilclaypool.github.io/csharp/dotnet_interactive/">Dotnet interactive as a rails-console replacement</a></h2>
+      <p>The tool I miss most when not using ruby-on-rails (which I use at my day-job) is the <a href="https://guides.rubyonrails.org/command_line.html">rails console</a>.
+My main use for the console is to write queries in the same ORM language as the rest of my application.
+For example, I might drop into the rails console to see the raw output of a query like <code>Course.where('start_date &lt; DateTime.now - 1.year')</code>.
+Or, if I need to create some fake data, I could drop into another console and run something like <code>Course.last.update(start_date: DateTime.now - 2.year)</code>.
+Both of these would be easy enough to do in SQL, but by using the same language as the application ORM lets me use all of the helper functions and snippets that might be present in the application.</p>
+<p>Recently, I&rsquo;ve tried to approximate this workflow using <a href="https://github.com/dotnet/interactive">dotnet interactive</a>, and I&rsquo;ll describe that setup below.
+The finished result can be found
+<a href="https://github.com/SaahilClaypool/BookyAPI/blob/221c8fc847ca2ba28b4347f6a094b52fc9a59b6d/Scratch.ipynb">here</a>(github).</p>
 <p><img src="https://saahilclaypool.github.io/BookyInteractive.png" alt="Interactive Example"></p>
     </div>
     
