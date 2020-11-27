@@ -73,11 +73,11 @@
 My main use for the console is to write queries in the same ORM language as the rest of my application.
 For example, I might drop into the rails console to see the raw output of a query like <code>Course.where('start_date &lt; DateTime.now - 1.year')</code>.
 Or, if I need to create some fake data, I could drop into another console and run something like <code>Course.last.update(start_date: DateTime.now - 2.year)</code>.
-Both of these would be easy enough to do in SQL, but by using the same language as the application ORM lets me use all of the helper functions and snippets that might be present in the application.</p>
+Both of these would be easy enough to do in SQL, but I find it more convenient to use the application&rsquo;s ORM and have access to any helper functions that I&rsquo;ve already written.</p>
 <p>Recently, I&rsquo;ve tried to approximate this workflow using <a href="https://github.com/dotnet/interactive">dotnet interactive</a>, and I&rsquo;ll describe that setup below.
 The finished result can be found
 <a href="https://github.com/SaahilClaypool/BookyAPI/blob/221c8fc847ca2ba28b4347f6a094b52fc9a59b6d/Scratch.ipynb">here</a>(github).</p>
-<p><img src="https://saahilclaypool.github.io/BookyInteractive.png" alt="Interactive Example"></p>
+<p><img src="https://saahilclaypool.github.io/BookyInteractive.png" alt="Notebook example"></p>
 <h2 id="motivational-use-cases">Motivational use cases</h2>
 <p>In an (my) ideal world, I would be able to write my type-safe C#, but still have the interactive workflow of ruby.
 Here are some things I might do while testing an (imaginary) ruby-on-rails application.</p>

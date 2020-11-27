@@ -21,11 +21,11 @@
 My main use for the console is to write queries in the same ORM language as the rest of my application.
 For example, I might drop into the rails console to see the raw output of a query like &lt;code&gt;Course.where(&#39;start_date &amp;lt; DateTime.now - 1.year&#39;)&lt;/code&gt;.
 Or, if I need to create some fake data, I could drop into another console and run something like &lt;code&gt;Course.last.update(start_date: DateTime.now - 2.year)&lt;/code&gt;.
-Both of these would be easy enough to do in SQL, but by using the same language as the application ORM lets me use all of the helper functions and snippets that might be present in the application.&lt;/p&gt;
+Both of these would be easy enough to do in SQL, but I find it more convenient to use the application&amp;rsquo;s ORM and have access to any helper functions that I&amp;rsquo;ve already written.&lt;/p&gt;
 &lt;p&gt;Recently, I&amp;rsquo;ve tried to approximate this workflow using &lt;a href=&#34;https://github.com/dotnet/interactive&#34;&gt;dotnet interactive&lt;/a&gt;, and I&amp;rsquo;ll describe that setup below.
 The finished result can be found
 &lt;a href=&#34;https://github.com/SaahilClaypool/BookyAPI/blob/221c8fc847ca2ba28b4347f6a094b52fc9a59b6d/Scratch.ipynb&#34;&gt;here&lt;/a&gt;(github).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://saahilclaypool.github.io/BookyInteractive.png&#34; alt=&#34;Interactive Example&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://saahilclaypool.github.io/BookyInteractive.png&#34; alt=&#34;Notebook example&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
