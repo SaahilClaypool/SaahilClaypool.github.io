@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://saahilclaypool.github.io/tcp/</loc>
+    <lastmod>2020-11-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://saahilclaypool.github.io/architecture/</loc>
     <lastmod>2020-09-13T18:09:50-04:00</lastmod>
     <priority>0</priority>
@@ -60,11 +65,6 @@
   
   <url>
     <loc>https://saahilclaypool.github.io/all/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://saahilclaypool.github.io/tcp/</loc>
     <priority>0</priority>
   </url>
   
